@@ -12,6 +12,10 @@ Export
         {
             path: '',
             loadChildren: './routes/home-page/module#Module'
+        },
+        {
+            path: 'register',
+            loadChildren: './routes/register-page/module#Module'
         }
     ];
 //
