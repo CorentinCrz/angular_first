@@ -7,7 +7,22 @@ import { Component, OnInit } from '@angular/core';
 // Declaration
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html'
+  template: `
+    <header>
+      <app-header></app-header>
+    </header>
+
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+
+    <footer>
+      <p>Under WTFPL - Julien Noyer 2019</p>
+    </footer>
+  `,
+  styles : [`
+    .highSalary{ color: red }
+  `]
 })
 
 /**

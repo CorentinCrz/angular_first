@@ -13,6 +13,14 @@
 -->
 <ul>
   <li *ngFor="let item of dataCollection">
-    {{ item.employee_name }}
+    <ul>
+      <li>{{ item.employee_name }}</li>
+      <!-- Affichage conditionnel -->
+      <li *ngIf="item.employee_salary === '0'">Chomage</li>
+      <!-- Manipuler les classes css -->
+      <li [ngClass]="{'highSalary': item.employee_salary > 2000}">
+        {{item.employee_age}}
+      </li>
+    </ul>
   </li>
 </ul>
