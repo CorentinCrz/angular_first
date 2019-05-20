@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validator, Validators } from "@angular/forms";
 
 @Component({
   selector: 'app-register-page',
@@ -7,9 +8,40 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterPageComponent implements OnInit {
 
-  constructor() { }
+  /**
+   * Déclaration
+   */
+  // Variables
+  public formData: FormGroup;
 
+  //Injection
+  constructor(
+    private FormBuilder: FormBuilder
+  ) { }
+
+  /**
+   * Methods
+   */
+  private resetForm = () => {
+    // Définit les valeurs de l'objet formData
+    this.formData = this.FormBuilder.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required],
+      streetAddress: ['', Validators.required],
+      familyName: ['', Validators.required],
+      givenName: ['', Validators.required]
+    })
+  }
+
+  public submitForm = () => {
+    console.log(this.formData);
+  }
+
+  /**
+   * Hook
+   */
   ngOnInit() {
+    this.resetForm();
   }
 
 }

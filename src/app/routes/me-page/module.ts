@@ -5,11 +5,8 @@ Imports
     import { NgModule } from '@angular/core';
     import { CommonModule } from '@angular/common';
 
-    // => Gestion des forms
-    import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-
     // Inner
-    import { RegisterPageComponent } from './register-page.component';
+    import { MePageComponent } from './me-page.component';
     import { Routing } from './router';
 //
 
@@ -18,11 +15,9 @@ Imports
 Definition 
 */
     @NgModule({
-        declarations: [ RegisterPageComponent ],
+        declarations: [ MePageComponent ],
         imports: [ 
             CommonModule, 
-            FormsModule,
-            ReactiveFormsModule,
 
             // Ajouter le router dans le tableau des imports
             Routing
