@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-root',
   template: `
     <header>
-      <h1 [textContent]="title"></h1>
+      <app-header></app-header>
     </header>
 
     <main>
