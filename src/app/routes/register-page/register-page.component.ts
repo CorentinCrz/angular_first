@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validator, Validators } from "@angular/forms";
 
+import { UserService } from "../../services/user/user.service";
+
 @Component({
   selector: 'app-register-page',
   templateUrl: './register-page.component.html',
-  styles: []
+
+  // Ajouter le service dans le tableau des providers
+  providers: [ UserService ]
 })
 export class RegisterPageComponent implements OnInit {
 
@@ -16,7 +20,8 @@ export class RegisterPageComponent implements OnInit {
 
   //Injection
   constructor(
-    private FormBuilder: FormBuilder
+    private FormBuilder: FormBuilder,
+    private UserService: UserService
   ) { }
 
   /**
@@ -25,16 +30,20 @@ export class RegisterPageComponent implements OnInit {
   private resetForm = () => {
     // Définit les valeurs de l'objet formData
     this.formData = this.FormBuilder.group({
-      email: ['', Validators.required],
-      password: ['', Validators.required],
-      streetAddress: ['', Validators.required],
-      familyName: ['', Validators.required],
-      givenName: ['', Validators.required]
+      email: ['corentin.croizat@hetic.net', Validators.required],
+      password: ['azerty123', Validators.required],
+      streetAddress: ['3 rue du progres', Validators.required],
+      familyName: ['croizat', Validators.required],
+      givenName: ['corentin', Validators.required]
     })
   }
 
   public submitForm = () => {
-    console.log(this.formData);
+    console.log(this.formData.value);
+
+    this.UserService.createItem( this.formData.value )
+    .then( bddResponse => console.log(bddResponse) )
+    .catch( bddResponse => console.error(bddResponse) )
   }
 
   /**
