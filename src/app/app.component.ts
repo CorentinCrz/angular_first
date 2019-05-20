@@ -7,7 +7,10 @@ import { Component, OnInit } from '@angular/core';
 // Declaration
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html'
+  templateUrl: './app.component.html',
+  styles : [`
+    .highSalary{ color: red }
+  `]
 })
 
 /**
